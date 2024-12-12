@@ -16,7 +16,7 @@ const NavModal = ({
 }: PropsWithChildren<IModalProps>) => {
 	return (
 		<div
-			className='fixed  left-0  right-0 bottom-0 bg-black/80 flex justify-center items-center h-full w-full pt-[80px] pb-[30px] overflow-y-auto  z-50 '
+			className='fixed  left-0  right-0 bottom-0 bg-black/80 flex justify-center items-center h-full w-full pt-[80px] custom-top  pb-[30px] overflow-y-auto  z-50 '
 			onClick={onClose}
 		>
 			

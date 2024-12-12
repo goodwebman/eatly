@@ -4,7 +4,6 @@ import { useState } from 'react'
 import CustomButton from '../CustomButton'
 import NavModal from './NavModal'
 
-
 const Navigation = () => {
 	const [choosen, setChoosen] = useState('Menu')
 	const [showModal, setShowModal] = useState<boolean>(false)
@@ -26,98 +25,101 @@ const Navigation = () => {
 	}
 
 	return (
-		<nav className='text-[#606060] p-[30px_0px_0px] px-[20px] inter fixed top-0 left-0 w-full z-40 bg-white'>
-			<div className='flex items-center container_ pb-6 border-b-[2px] border-[#cbcbcb] '>
-				<div>
-					<a href='/'>
-						<img
-							src='/Logo.svg'
-							alt='logo'
-							className='w-[110px] h-[50px] whitespace-nowrap'
-						/>
-					</a>
-				</div>
-				<ul className='flex items-center gap-[35px] pl-[33px] font-medium text-[18px] duration-300 transition-colors max-[770px]:hidden'>
-					<li className='hover:text-[#5C4EAE]'>
-						<a href=''>Menu</a>
-					</li>
-					<li className='hover:text-[#5C4EAE]'>
-						<a href=''>Blog</a>
-					</li>
-					<li className='hover:text-[#5C4EAE]'>
-						<a href=''>Pricing</a>
-					</li>
-					<li className='hover:text-[#5C4EAE]'>
-						<a href=''>Contact</a>
-					</li>
-				</ul>
-
-				{/* mobile menu */}
-
-				<nav
-					className={`${
-						showMobileMenu ? 'right-0' : 'right-[-100%]'
-					}  hidden max-[770px]:block fixed top-0  w-[60%] h-full bg-[#f9f9f9] overflow-auto z-10 p-[70px_10px_20px] duration-300`}
-				>
-					<ul className='pt-[30px]  font-[500] text-[35px] text-[#606060] flex flex-col gap-[40px]'>
-						<li>
-							<a href='/'>Menu</a>
-						</li>
-						<li>
-							<a href='/'>Blog</a>
-						</li>
-						<li>
-							<a href='/'>Pricing</a>
-						</li>
-						<li>
-							<a href='/'>Contacts</a>
-						</li>
-
-						<li className='hidden max-[450px]:block'>
-							<button
-								onClick={() => setChoosenLogin(true)}
-								className='text-[#606060] font-[700] text-[30px]'
-							>
-								Login
-							</button>
-						</li>
-						<li className='hidden max-[450px]:block'>
-							<CustomButton
-								onClick={() => setShowModal(true)}
-								title='Sign up'
-								className='hover:text-[#6C5FBC] hover:bg-[#F9F9F9] hover:border hover:border-[#6C5FBC] p-[18px_27px] text-[30px]'
+		<nav className='text-[#606060] p-[30px_0px_0px] inter fixed top-0 left-0 w-full z-40 bg-white '>
+			<div className='container_'>
+				<div className='flex items-center pb-6  border-b-[2px] border-[#cbcbcb] '>
+					<div>
+						<a href='/'>
+							<img
+								src='/Logo.svg'
+								alt='logo'
+								className='w-[110px] h-[50px] whitespace-nowrap'
 							/>
+						</a>
+					</div>
+					<ul className='flex items-center gap-[35px] pl-[33px] font-medium text-[18px] duration-300 transition-colors max-[770px]:hidden'>
+						<li className='hover:text-[#5C4EAE]'>
+							<a href=''>Menu</a>
+						</li>
+						<li className='hover:text-[#5C4EAE]'>
+							<a href=''>Blog</a>
+						</li>
+						<li className='hover:text-[#5C4EAE]'>
+							<a href=''>Pricing</a>
+						</li>
+						<li className='hover:text-[#5C4EAE]'>
+							<a href=''>Contact</a>
 						</li>
 					</ul>
-				</nav>
 
-				<div className='hidden min-[450px]:flex items-center  gap-[40px] ml-auto '>
-					<button
-						onClick={() => setShowModal(true)}
-						onClickCapture={() => setChoosenLogin(true)}
-						className='text-[#606060] font-[700] text-[18px]'
+					{/* mobile menu */}
+
+					<nav
+						className={`${
+							showMobileMenu ? 'right-0' : 'right-[-100%]'
+						}  hidden max-[770px]:block fixed top-0  w-[60%] h-full bg-[#f9f9f9] overflow-auto z-10 p-[70px_10px_20px] duration-300`}
 					>
-						Login
+						<ul className='pt-[30px]  font-[500] text-[35px] text-[#606060] flex flex-col gap-[40px]'>
+							<li>
+								<a href='/'>Menu</a>
+							</li>
+							<li>
+								<a href='/'>Blog</a>
+							</li>
+							<li>
+								<a href='/'>Pricing</a>
+							</li>
+							<li>
+								<a href='/'>Contacts</a>
+							</li>
+
+							<li className='hidden max-[450px]:block'>
+								<button
+									onClick={() => setChoosenLogin(true)}
+									className='text-[#606060] font-[700] text-[30px]'
+								>
+									Login
+								</button>
+							</li>
+							<li className='hidden max-[450px]:block'>
+								<CustomButton
+									onClick={() => setShowModal(true)}
+									title='Sign up'
+									className='hover:text-[#6C5FBC] hover:bg-[#F9F9F9] hover:border hover:border-[#6C5FBC] p-[18px_27px] text-[30px]'
+								/>
+							</li>
+						</ul>
+					</nav>
+
+					<div className='hidden min-[450px]:flex items-center  gap-[40px] ml-auto '>
+						<button
+							onClick={() => setShowModal(true)}
+							onClickCapture={() => setChoosenLogin(true)}
+							className='text-[#606060] font-[700] text-[18px]'
+						>
+							Login
+						</button>
+
+						<CustomButton
+							onClick={() => setShowModal(true)}
+							title='Sign up'
+							className='hover:text-[#6C5FBC] hover:bg-[#F9F9F9] hover:border hover:border-[#6C5FBC] '
+						/>
+					</div>
+
+					<button
+						onClick={handleShowMobileMenu}
+						className={`ml-[30px] max-[450px]:ml-auto  relative hidden w-[30px] h-[20px] z-10 header__burger max-[770px]:block ${
+							showMobileMenu ? 'header__burger-active' : ''
+						} `}
+					>
+						<span></span>
+						<span></span>
+						<span></span>
 					</button>
-
-					<CustomButton
-						onClick={() => setShowModal(true)}
-						title='Sign up'
-						className='hover:text-[#6C5FBC] hover:bg-[#F9F9F9] hover:border hover:border-[#6C5FBC] '
-					/>
 				</div>
-
-				<button
-					onClick={handleShowMobileMenu}
-					className={`ml-[30px] max-[450px]:ml-auto  relative hidden w-[30px] h-[20px] z-10 header__burger max-[770px]:block ${
-						showMobileMenu ? 'header__burger-active' : ''
-					} `}
-				>
-					<span></span>
-					<span></span>
-					<span></span>
-				</button>
 			</div>
+
 			{showModal && (
 				<NavModal onClose={handleModalClose} active={showModal}>
 					<button
@@ -130,7 +132,7 @@ const Navigation = () => {
 					{/* left side */}
 
 					<div className='flex'>
-						<div className='bg-white flex-col flex  overflow-y-auto px-[15px] py-[32px] w-[1270px] max-[990px]:w-[600px] max-[1410px]:w-[800px] max-[635px]:w-[400px] max-[380px]:w-[350px]'>
+						<div className='bg-white flex-col flex  overflow-y-auto px-[15px] py-[32px]  w-[1270px] max-[990px]:w-[600px] max-[1410px]:w-[800px] max-[635px]:w-[400px] max-[380px]:w-[350px]'>
 							<div className='flex items-center justify-between'>
 								<a href='/'>
 									<img
