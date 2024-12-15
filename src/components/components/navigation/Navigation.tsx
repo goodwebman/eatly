@@ -103,7 +103,7 @@ const Navigation = () => {
 						<CustomButton
 							onClick={() => setShowModal(true)}
 							title='Sign up'
-							className='hover:text-[#6C5FBC] hover:bg-[#F9F9F9] hover:border hover:border-[#6C5FBC] '
+							className=' hover:bg-[#F9F9F9] hover:border hover:text-[#6C5FBC] hover:border-[#6C5FBC] '
 						/>
 					</div>
 

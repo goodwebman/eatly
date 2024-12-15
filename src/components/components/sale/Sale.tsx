@@ -2,9 +2,9 @@ import CustomButton from '../CustomButton'
 
 const Sale = () => {
 	return (
-		<section className='my-[100px]'>
-			<div className='container_'>
-				<div className='sale__inner max-[575px]:p-[20px_30px]'>
+		<section className=''>
+			<div className='container_ '>
+				<div className='sale__inner max-[575px]:p-[20px_30px] !my-[100px]'>
 					<h2 className='uppercase font-[800] text-[70px] text-white m-[0_0_20px] poppins'>
 						Get 50%
 					</h2>
