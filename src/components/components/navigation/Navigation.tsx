@@ -1,15 +1,26 @@
 'use client'
 
+import Link from 'next/link'
+
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import CustomButton from '../CustomButton'
 import NavModal from './NavModal'
 
 const Navigation = () => {
-	const [choosen, setChoosen] = useState('Menu')
 	const [showModal, setShowModal] = useState<boolean>(false)
 	const [showPassword, setShowPassword] = useState<boolean>(false)
 	const [chooseLogin, setChoosenLogin] = useState<boolean>(false)
 	const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false)
+
+	const pathname = usePathname()
+
+	const navItems = [
+		{ name: 'Menu', path: '/menu' },
+		{ name: 'Blog', path: '/blog' },
+		{ name: 'Pricing', path: '/pricing' },
+		{ name: 'Contact', path: '/contact' },
+	]
 
 	const handleModalClose = () => {
 		setChoosenLogin(!chooseLogin)
@@ -38,18 +49,20 @@ const Navigation = () => {
 						</a>
 					</div>
 					<ul className='flex items-center gap-[35px] pl-[33px] font-medium text-[18px] duration-300 transition-colors max-[770px]:hidden'>
-						<li className='hover:text-[#5C4EAE]'>
-							<a href=''>Menu</a>
-						</li>
-						<li className='hover:text-[#5C4EAE]'>
-							<a href=''>Blog</a>
-						</li>
-						<li className='hover:text-[#5C4EAE]'>
-							<a href=''>Pricing</a>
-						</li>
-						<li className='hover:text-[#5C4EAE]'>
-							<a href=''>Contact</a>
-						</li>
+						{navItems.map(item => (
+							<li key={item.path}>
+								<Link
+									href={item.path}
+									className={` ${
+										pathname === item.path
+											? 'underline decoration-[2px] text-[#6C5FBC] underline-offset-[8px]'
+											: ''
+									} text-[#606060] hover:text-[#6C5FBC] duration-300`}
+								>
+									{item.name}
+								</Link>
+							</li>
+						))}
 					</ul>
 
 					{/* mobile menu */}
@@ -60,18 +73,20 @@ const Navigation = () => {
 						}  hidden max-[770px]:block fixed top-0  w-[60%] h-full bg-[#f9f9f9] overflow-auto z-10 p-[70px_10px_20px] duration-300`}
 					>
 						<ul className='pt-[30px]  font-[500] text-[35px] text-[#606060] flex flex-col gap-[40px]'>
-							<li>
-								<a href='/'>Menu</a>
+						{navItems.map(item => (
+							<li key={item.path}>
+								<Link
+									href={item.path}
+									className={` ${
+										pathname === item.path
+											? 'underline decoration-[2px] text-[#6C5FBC] underline-offset-[8px]'
+											: ''
+									} text-[#606060] hover:text-[#6C5FBC] duration-300`}
+								>
+									{item.name}
+								</Link>
 							</li>
-							<li>
-								<a href='/'>Blog</a>
-							</li>
-							<li>
-								<a href='/'>Pricing</a>
-							</li>
-							<li>
-								<a href='/'>Contacts</a>
-							</li>
+						))}
 
 							<li className='hidden max-[450px]:block'>
 								<button

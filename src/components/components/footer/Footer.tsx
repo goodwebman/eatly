@@ -7,7 +7,7 @@ const Footer = () => {
 						<a href='/'>
 							<img
 								src='/Logo.svg'
-								alt='logo'
+								alt='logotype'
 								className='w-[110px] h-[50px] whitespace-nowrap'
 							/>
 						</a>
