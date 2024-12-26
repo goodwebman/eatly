@@ -4,14 +4,11 @@
 
 body {
 	font-family: 'Poppins', 'sans-serif';
-	
 }
 
 * {
 	outline: none;
 }
-
-
 
 .poppins {
 	font-family: var(--poppins);
@@ -44,48 +41,46 @@ body {
 }
 
 .menu__food::after {
-	content: "";
+	content: '';
 	position: absolute;
-	width:254px;
-	height:258px;
-	
-	background: url(/menu-food.png)  ;
+	width: 254px;
+	height: 258px;
+
+	background: url(/menu-food.png);
 	background-size: cover;
 	right: 40px;
-	top:50px;
-
+	top: 50px;
 }
 
-@media (max-width:870px) {
+@media (max-width: 870px) {
 	.menu__food::after {
-		width:180px;
-		height:180px;
-		right:20px;
-		top:120px;
+		width: 180px;
+		height: 180px;
+		right: 20px;
+		top: 120px;
 	}
 }
 
-@media (max-width:700px) {
+@media (max-width: 700px) {
 	.menu__food::after {
-		width:120px;
-		height:120px;
-		right:30px;
-		top:60px;
+		width: 120px;
+		height: 120px;
+		right: 30px;
+		top: 60px;
 	}
 }
 
-
-@media (max-width:560px) {
+@media (max-width: 560px) {
 	.menu__food::after {
-		width:90px;
-		height:90px;
-		right:0px;
-		top:130px;
+		width: 90px;
+		height: 90px;
+		right: 0px;
+		top: 130px;
 	}
 }
 
 .menu__food::before {
-	content: "";
+	content: '';
 	position: absolute;
 	width: 54px;
 	height: 36px;
@@ -95,7 +90,40 @@ body {
 	top: -40px;
 }
 
+.contact-arrow::after {
+	content: '';
+	position: absolute;
+	width: 336px;
+	height: 128px;
+	background: url(/contact-arrow.svg);
+	background-size: cover;
+	top: 130px;
+	right: 100px;
+}
 
+@media (max-width: 400px) {
+	.contact-arrow::after {
+		content: '';
+		position: absolute;
+		width: 336px;
+		height: 128px;
+		background: url(/contact-arrow.svg);
+		background-size: cover;
+		top: 228px;
+		right: 100px;
+	}
+}
+
+.contact-stars::before {
+	content: '';
+	position: absolute;
+	width: 30px;
+	height: 57px;
+	background: url(/contact-stars.svg);
+	background-size: cover;
+	left: 80px;
+	top: 50px;
+}
 
 .sale__button {
 	position: absolute;
@@ -428,22 +456,20 @@ body {
 	background-size: cover;
 }
 
-
 .review__header::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: 58px;
-    height: 44px;
-    transform: translateY(-50%);
-    background: url(/quotes.svg) top center no-repeat;
-    background-size: cover;
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 58px;
+	height: 44px;
+	transform: translateY(-50%);
+	background: url(/quotes.svg) top center no-repeat;
+	background-size: cover;
 }
 
-
 .accordion__sticks::after {
-	content: "";
+	content: '';
 	position: absolute;
 	right: -60px;
 	top: -50px;

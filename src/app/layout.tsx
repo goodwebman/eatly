@@ -1,5 +1,5 @@
-import Footer from '@/components/components/footer/Footer'
-import Navigation from '@/components/components/navigation/Navigation'
+import Footer from '@/components/shared/footer/Footer'
+import Navigation from '@/components/shared/navigation/Navigation'
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import './globals.css'

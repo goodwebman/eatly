@@ -1,13 +1,11 @@
-
-
-import Dashboard from '@/components/components/dashboard/Dashboard'
-import Dishes from '@/components/components/dishes/Dishes'
-import Download from '@/components/components/download/Download'
-import Features from '@/components/components/features/Features'
-import Hero from '@/components/components/hero/Hero'
-import Restaurants from '@/components/components/restaurants/Restaurants'
-import Review from '@/components/components/review/Review'
-import Sale from '@/components/components/sale/Sale'
+import Dashboard from '@/components/shared/dashboard/Dashboard'
+import Dishes from '@/components/shared/dishes/Dishes'
+import Download from '@/components/shared/download/Download'
+import Features from '@/components/shared/features/Features'
+import Hero from '@/components/shared/hero/Hero'
+import Restaurants from '@/components/shared/restaurants/Restaurants'
+import Review from '@/components/shared/review/Review'
+import Sale from '@/components/shared/sale/Sale'
 
 export default function Home() {
 	return (
