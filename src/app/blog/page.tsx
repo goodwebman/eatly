@@ -1,6 +1,6 @@
-import Accordion from '@/components/components/accordion/Accordion'
-import Articles from '@/components/components/articles/Articles'
-import Sale from '@/components/components/sale/Sale'
+import Accordion from '@/components/shared/accordion/Accordion'
+import Articles from '@/components/shared/articles/Articles'
+import Sale from '@/components/shared/sale/Sale'
 import React from 'react'
 
 const page = () => {

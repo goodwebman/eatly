@@ -1,7 +1,7 @@
-import Accordion from '@/components/components/accordion/Accordion'
-import Dishes from '@/components/components/dishes/Dishes'
-import MenuFilter from '@/components/components/menuFilter/MenuFilter'
-import Restaurants from '@/components/components/restaurants/Restaurants'
+import Accordion from '@/components/shared/accordion/Accordion'
+import Dishes from '@/components/shared/dishes/Dishes'
+import MenuFilter from '@/components/shared/menuFilter/MenuFilter'
+import Restaurants from '@/components/shared/restaurants/Restaurants'
 
 const Menu = () => {
 	return (
