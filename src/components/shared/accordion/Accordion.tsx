@@ -1,4 +1,8 @@
+'use client'
+import { motion } from 'framer-motion'
+
 import AccordionItem from './AccordionItem'
+
 
 const items = [
 	{
@@ -35,10 +39,20 @@ const Accordion = () => {
 		<section className='my-[200px] '>
 			<div className='container_'>
 				<div className='text-center'>
-					<div className='relative inline-flex flex-col accordion__sticks font-[600] text-[45px] leading-[54px] justify-center text-center  text-[#323142] mb-[90px]'>
+					<motion.div
+						initial='hidden'
+						whileInView='visible'
+						viewport={{ once: true, amount: 0.5 }}
+						transition={{ duration: 0.8 }}
+						variants={{
+							hidden: { opacity: 0, x: -50 },
+							visible: { opacity: 1, x: 0 },
+						}}
+						className='relative inline-flex flex-col accordion__sticks font-[600] text-[45px] leading-[54px] justify-center text-center  text-[#323142] mb-[90px]'
+					>
 						Frequently Asked
 						<div className='text-[#6C5FBC]'> Questions</div>
-					</div>
+					</motion.div>
 				</div>
 
 				<div className=' mx-auto my-4'>

@@ -8,7 +8,7 @@ interface ProductProps {
 
 const DashboardCart = ({ id, name, time, imgLink, status }: ProductProps) => {
 	return (
-		<li className='shadow-lg mb-[10px] bg-white rounded-[16px] p-[5px_15px] flex items-center'>
+		<li className='shadow-lg mb-[10px] border-[#F9F9F9] border-[2px] bg-white rounded-[16px] p-[5px_15px] flex items-center'>
 			<div className='max-w-[23%] mr-[20px]'>
 				<img className='max-w-full' src={imgLink} alt={name} />
 			</div>

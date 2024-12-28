@@ -1,7 +1,7 @@
 'use client'
-
 import useFavoritesStore from '@/store/store'
-import React from 'react'
+import { motion } from 'framer-motion'
+import React, { useState } from 'react'
 
 interface ProductProps {
 	id: string
@@ -12,6 +12,8 @@ interface ProductProps {
 	dishTag: string
 	
 }
+
+
 
 const RestarauntItem: React.FC<ProductProps> = ({
 	id,
@@ -25,6 +27,11 @@ const RestarauntItem: React.FC<ProductProps> = ({
 	const { favorites, addFavorite, removeFavorite } = useFavoritesStore()
 	const isFavorite = favorites.includes(id)
 
+	
+
+
+	
+
 	const handleToggleFavorite = () => {
 		if (isFavorite) {
 			removeFavorite(id)
@@ -34,7 +41,8 @@ const RestarauntItem: React.FC<ProductProps> = ({
 	}
 
 	return (
-		<li
+		<motion.div
+			
 			className='rounded-[30px] list-none overflow-hidden bg-white 
      duration-300 shadow-2xl hover:scale-105'
 		>
@@ -81,7 +89,7 @@ const RestarauntItem: React.FC<ProductProps> = ({
 					</button>
 				</div>
 			</div>
-		</li>
+		</motion.div>
 	)
 }
 
