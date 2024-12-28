@@ -52,7 +52,7 @@ const page = () => {
 								Browse restaurants and menus
 							</h1>
 
-							<p className=' mt-[35px] text-[#252525] font-[400] text-[22px] leading-[55px]'>
+							<p className=' mt-[35px] text-[#252525] max-[500px]:text-[16px]  font-[400] text-[22px] leading-[55px]'>
 								{article.browse}
 							</p>
 
@@ -60,7 +60,7 @@ const page = () => {
 								Select your items
 							</h1>
 
-							<p className=' mt-[35px] text-[#252525] font-[400] text-[22px] leading-[55px]'>
+							<p className=' mt-[35px] text-[#252525] max-[500px]:text-[16px] font-[400] text-[22px] leading-[55px]'>
 								{article.selectItems}
 							</p>
 
@@ -68,7 +68,7 @@ const page = () => {
 								Place your order
 							</h1>
 
-							<p className=' mt-[35px] text-[#252525] font-[400] text-[22px] leading-[55px] '>
+							<p className=' mt-[35px] text-[#252525] max-[500px]:text-[16px] font-[400] text-[22px] leading-[55px] '>
 								{article.place}
 							</p>
 						</div>

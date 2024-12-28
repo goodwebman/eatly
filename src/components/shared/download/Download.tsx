@@ -1,12 +1,30 @@
+'use client'
+import { motion } from 'framer-motion'
+
 const Download = () => {
 	return (
 		<section>
 			<div className='flex max-[1000px]:flex-col-reverse justify-evenly !pt-[100px] !pb-[120px] container_ items-center  border-b border-[#cbcbcb] gap-[100px] !px-[140px]'>
 				<div className='mobile__sticks relative flex-shrink-[1]'>
-					<img className='min-h-[609px] min-w-[304px] object-fill' src='/phone.png' alt='mobile screen' />
+					<img
+						className='min-h-[609px] min-w-[304px] object-fill'
+						src='/phone.png'
+						alt='mobile screen'
+					/>
 				</div>
 
-				<div className='max-[1000px]:text-center'>
+				<motion.div
+					initial='hidden'
+				
+					whileInView='visible'
+					viewport={{ once: true, amount: 0.5 }}
+					transition={{ duration: 0.4 }}
+					variants={{
+						hidden: { opacity: 0, x: 50 },
+						visible: { opacity: 1, x: 0 },
+					}}
+					className='max-[1000px]:text-center'
+				>
 					<h2 className='text-left m-[0_0_60px] font-[600] poppins text-[45px] text-[#323142] leading-[58px] max-[1000px]:text-[35px] max-[1000px]:mb-[40px]'>
 						Premium <span className='text-[#6c5fbc]'>Quality</span> For Your
 						Health
@@ -46,7 +64,7 @@ const Download = () => {
 							></path>
 						</svg>
 					</a>
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	)

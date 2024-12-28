@@ -1,9 +1,21 @@
+'use client'
+import { motion } from 'framer-motion'
 import CustomButton from '../CustomButton'
 
 const Hero = () => {
 	return (
 		<section className='p-[220px_0px_120px]'>
-			<div className='container_ flex max-[770px]:flex-col justify-between items-center gap-[10px]'>
+			<motion.div
+				initial='hidden'
+				whileInView='visible'
+				viewport={{ once: true, amount: 0.5 }}
+				transition={{ duration: 0.8 }}
+				variants={{
+					hidden: { opacity: 0, x: -50 },
+					visible: { opacity: 1, x: 0 },
+				}}
+				className='container_ flex max-[770px]:flex-col justify-between items-center gap-[10px]'
+			>
 				{/* left text */}
 				<div className='flex-[1_1_49%] max-[770px]:text-center'>
 					<p className='pl-[60px] inline-block relative users_line text-gray-400/50 uppercase font-[600] m-[0_0_20px] tracking-[2px]'>
@@ -100,7 +112,7 @@ const Hero = () => {
 						</div>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</section>
 	)
 }

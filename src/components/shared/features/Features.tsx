@@ -1,8 +1,19 @@
+'use client'
+import { motion } from 'framer-motion'
 const Features = () => {
 	return (
 		<section className='bg-[#6c5fbc] p-[55px_0] relative overflow-hidden'>
 			<div className='container_'>
-				<ul className='flex max-[765px]:flex-col flex-wrap justify-center'>
+				<motion.div
+				initial='hidden'
+				
+				whileInView='visible'
+				viewport={{ once: true, amount: 0.5 }}
+				transition={{ duration: 0.4 }}
+				variants={{
+					hidden: { opacity: 0, x: 50 },
+					visible: { opacity: 1, x: 0 },
+				}} className='list-none flex max-[765px]:flex-col flex-wrap justify-center'>
 					<li className='flex-[0_1_33.33%] p-[0_25px] text-center border-r-[1px] border-r-[#c5c5c5] features__item'>
 						<div className='text-white font-[600] text-[43px] mb-[10px]'>
 							10K+
@@ -27,7 +38,7 @@ const Features = () => {
 							Reliable Customer Support We Provide Great Experiences
 						</p>
 					</li>
-				</ul>
+				</motion.div>
 
 				<div className='w-full h-full'>
 					<div className='top-0 left-0 absolute'>

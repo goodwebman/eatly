@@ -1,4 +1,5 @@
 'use client'
+import { motion } from 'framer-motion'
 
 import Link from 'next/link'
 import { useState } from 'react'
@@ -198,28 +199,84 @@ const Articles = () => {
 		setCurrentPage(Math.min(totalPages - 1, currentPage + 1))
 	}
 
+	const itemVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				duration: 0.3,
+				type: 'spring',
+				stiffness: 100,
+			},
+		},
+	}
+
+	const containerVariants = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+			transition: {
+				staggerChildren: 0.25,
+			},
+		},
+	}
+
 	return (
 		<section>
 			<div className='container_'>
-				<h1 className='text-center text-[45px] text-[#252525] font-[600] mt-[155px]'>
+				<motion.div
+					initial='hidden'
+					whileInView='visible'
+					viewport={{ once: true, amount: 0.5 }}
+					transition={{ duration: 0.4 }}
+					variants={{
+						hidden: { opacity: 0, y: -50 },
+						visible: {
+							opacity: 1,
+							y: 0,
+							transition: {
+								type: 'spring',
+								stiffness: 100,
+							},
+						},
+					}}
+					className='text-center text-[45px] text-[#252525] font-[600] mt-[155px]'
+				>
 					Latest <span className='text-[#6C5FBC]'>Articles </span>
-				</h1>
+				</motion.div>
 
-				<div className='grid grid-cols-[350px_350px_350px] max-[1200px]:grid-cols-[350px_350px] max-[780px]:grid-cols-[350px] justify-center  gap-[60px] mt-[100px]'>
+				<motion.div
+					variants={containerVariants}
+					initial='hidden'
+					whileInView='visible'
+					viewport={{ once: true, amount: 0.5 }}
+					transition={{ duration: 0.4 }}
+					className='grid grid-cols-[350px_350px_350px] max-[1200px]:grid-cols-[350px_350px] max-[780px]:grid-cols-[350px] justify-center  gap-[60px] mt-[100px]'
+				>
 					{currentProducts.map(article => (
-						<Link key={article.id} href={`/blog/${article.id}`}>
-							<ArticlesItem
-								key={article.id}
-								id={article.id}
-								imgLink={article.imgLink}
-								AuthorImg={article.AuthorImg}
-								AuthorName={article.AuthorName}
-								CreatedAt={article.CreatedAt}
-								question={article.question}
-							/>
-						</Link>
+						<motion.div
+							key={article.id}
+							initial='hidden'
+							whileInView='visible'
+							viewport={{ once: true, amount: 0.5 }}
+							transition={{ duration: 0.4 }}
+							variants={itemVariants}
+						>
+							<Link key={article.id} href={`/blog/${article.id}`}>
+								<ArticlesItem
+									key={article.id}
+									id={article.id}
+									imgLink={article.imgLink}
+									AuthorImg={article.AuthorImg}
+									AuthorName={article.AuthorName}
+									CreatedAt={article.CreatedAt}
+									question={article.question}
+								/>
+							</Link>
+						</motion.div>
 					))}
-				</div>
+				</motion.div>
 
 				<div className='flex justify-center mt-[145px] gap-[80px]'>
 					<button

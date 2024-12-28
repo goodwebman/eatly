@@ -1,8 +1,7 @@
 'use client'
+import { motion } from 'framer-motion'
 
 import { useState } from 'react'
-
-
 
 const time = [
 	{
@@ -36,9 +35,19 @@ const RightBoard = () => {
 	}
 
 	const currentData = time.find(item => item.value === selectedValue)
-	
+
 	return (
-		<section className='flex-[0_1_47%]  shadow-2xl p-[43px] rounded-[25px] '>
+		<motion.div
+			initial='hidden'
+			whileInView='visible'
+			viewport={{ once: true, amount: 0.5 }}
+			transition={{ duration: 0.4 }}
+			variants={{
+				hidden: { opacity: 0, x: 50 },
+				visible: { opacity: 1, x: 0 },
+			}}
+			className='flex-[0_1_47%]  shadow-2xl p-[43px] rounded-[25px] border-[#F9F9F9] border-[2px]'
+		>
 			<div className='flex justify-between items-center mb-[45px]  max-[482px]:flex-col max-[482px]:gap-[10px]'>
 				<h3 className='font-[600] text-[28px] text-[#1a202c] m-0 '>
 					Purchases
@@ -63,7 +72,10 @@ const RightBoard = () => {
 					<div className="absolute bottom-6 left-6 right-6 h-[9.42px]  bg-[#6b5fbc] rounded-full content-[''] opacity-[0.2]"></div>
 
 					{/* after tailwind */}
-					<div className={`absolute bottom-6 left-6 right-6 h-[9.42px]  bg-[#6b5fbc] rounded-full content-[''] `} style={{ width: `${currentData?.ExpenseFill}%` }}></div>
+					<div
+						className={`absolute bottom-6 left-6 right-6 h-[9.42px]  bg-[#6b5fbc] rounded-full content-[''] `}
+						style={{ width: `${currentData?.ExpenseFill}%` }}
+					></div>
 
 					<div className='flex items-center gap-[20px]'>
 						<span className='purchase__graph-icon bg-[#f4f0ff] purchase__graph-icon-wallet'></span>
@@ -85,7 +97,10 @@ const RightBoard = () => {
 					<div className="absolute bottom-6 left-6 right-6 h-[9.42px]  bg-[#fbac18] rounded-full content-[''] opacity-[0.2]"></div>
 
 					{/* after tailwind */}
-					<div className={`absolute bottom-6 left-6 right-6 h-[9.42px]  bg-[#fbac18] rounded-full content-[''] `} style={{ width: `${currentData?.VocherFill}%` }}></div>
+					<div
+						className={`absolute bottom-6 left-6 right-6 h-[9.42px]  bg-[#fbac18] rounded-full content-[''] `}
+						style={{ width: `${currentData?.VocherFill}%` }}
+					></div>
 
 					<div className='flex items-center gap-[20px]'>
 						<span className='purchase__graph-icon bg-[#f2fdf6] purchase__graph-icon-money'></span>
@@ -103,7 +118,7 @@ const RightBoard = () => {
 					</div>
 				</li>
 			</ul>
-		</section>
+		</motion.div>
 	)
 }
 

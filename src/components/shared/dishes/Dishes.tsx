@@ -1,7 +1,8 @@
 'use client'
-
+import { AnimatePresence, motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import RestarauntItem from '../restaurants/RestarauntItem'
 import DishesItem from './DishesItem'
 
 const products = [
@@ -88,21 +89,86 @@ const products = [
 	},
 ]
 
+const itemVariants = {
+	hidden: { opacity: 0, y: 20 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.3,
+			type: 'spring',
+			stiffness: 100,
+		},
+	},
+}
+
+const containerVariants = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.15,
+		},
+	},
+}
+
 const Dishes = () => {
 	const [showAll, setShowAll] = useState(false)
 	const pathname = usePathname()
 
-	const displayedProducts = showAll ? products : products.slice(0, 5)
+	const visibleProducts = showAll
+		? products
+		: products.slice(0, products.length - 4)
+	const hiddenProducts = showAll ? [] : products.slice(products.length - 4)
+
 	return (
 		<section>
 			<div className='container_ !pt-[100px] !pb-[120px] border-b border-[#cbcbcb] '>
-				<div className={`${pathname === '/' ? "" : "hidden"}   m-[0_0_85px] font-[600] text-[45px] text-center text-[#323142]`}>
+				<motion.div
+					initial='hidden'
+					whileInView='visible'
+					viewport={{ once: true, amount: 0.5 }}
+					transition={{ duration: 0.4 }}
+					variants={{
+						hidden: { opacity: 0, y: -50 },
+						visible: {
+							opacity: 1,
+							y: 0,
+							transition: {
+								type: 'spring',
+								stiffness: 100,
+							},
+						},
+					}}
+					className={`${
+						pathname === '/' ? '' : 'hidden'
+					}   m-[0_0_85px] font-[600] text-[45px] text-center text-[#323142]`}
+				>
 					Our Top <span className='text-[#6c5fbc]'>Dishes</span>
-				</div>
+				</motion.div>
 
 				{/* menu page */}
 
-				<div className={` ${pathname === '/' ? 'hidden' : ''}   flex items-center justify-between mb-[65px] max-[710px]:justify-center`}>
+				<motion.div
+					initial='hidden'
+					whileInView='visible'
+					viewport={{ once: true, amount: 0.5 }}
+					transition={{ duration: 0.4 }}
+					variants={{
+						hidden: { opacity: 0, y: -50 },
+						visible: {
+							opacity: 1,
+							y: 0,
+							transition: {
+								type: 'spring',
+								stiffness: 100,
+							},
+						},
+					}}
+					className={` ${
+						pathname === '/' ? 'hidden' : ''
+					}   flex items-center justify-between mb-[65px] max-[710px]:justify-center`}
+				>
 					<div className=' font-[600] text-[45px]  text-[#323142] max-[710px]:text-[35px]'>
 						Our Top <span className='text-[#6c5fbc]'>Dishes</span>
 					</div>
@@ -161,24 +227,67 @@ const Dishes = () => {
 							</button>
 						)}
 					</div>
-				</div>
+				</motion.div>
 
-				<div className='grid grid-cols-5 max-[1060px]:grid-cols-4 max-[920px]:grid-cols-3 max-[760px]:grid-cols-2 max-[420px]:grid-cols-1 gap-[40px_30px] mb-[65px] '>
-					{displayedProducts.map(product => (
-						<DishesItem
+				<motion.div
+					variants={containerVariants}
+					initial='hidden'
+					whileInView='visible'
+					viewport={{ once: true, amount: 0.5 }}
+					transition={{ duration: 0.4 }}
+					className='grid grid-cols-5 max-[1060px]:grid-cols-4 max-[920px]:grid-cols-3 max-[760px]:grid-cols-2 max-[420px]:grid-cols-1 gap-[40px_30px] mb-[65px] '
+				>
+					{visibleProducts.map(product => (
+						<motion.div
 							key={product.id}
-							id={product.id}
-							name={product.name}
-							cookTime={product.cookTime}
-							rate={product.rate}
-							imgLink={product.imgLink}
-							dishTag={product.dishTag}
-							price={product.price}
-						/>
+							initial='hidden'
+							whileInView='visible'
+							viewport={{ once: true, amount: 0.5 }}
+							transition={{ duration: 0.4 }}
+							variants={itemVariants}
+						>
+							<DishesItem
+								key={product.id}
+								id={product.id}
+								name={product.name}
+								cookTime={product.cookTime}
+								rate={product.rate}
+								imgLink={product.imgLink}
+								dishTag={product.dishTag}
+								price={product.price}
+							/>
+						</motion.div>
 					))}
-				</div>
 
-				<div className={` ${pathname === '/' ? '' : 'hidden'} max-[710px]:block text-right`}>
+					<AnimatePresence>
+						{showAll &&
+							hiddenProducts.map(product => (
+								<motion.div
+									key={product.id}
+									variants={itemVariants}
+									initial='visible'
+									animate='visible'
+									exit='visible'
+								>
+									<RestarauntItem
+										key={product.id}
+										id={product.id}
+										name={product.name}
+										cookTime={product.cookTime}
+										rate={product.rate}
+										imgLink={product.imgLink}
+										dishTag={product.dishTag}
+									/>
+								</motion.div>
+							))}
+					</AnimatePresence>
+				</motion.div>
+
+				<div
+					className={` ${
+						pathname === '/' ? '' : 'hidden'
+					} max-[710px]:block text-right`}
+				>
 					{!showAll && products.length > 5 && (
 						<button
 							className='poppins inline-flex  items-center gap-[20px] font-[500] text-[20px] leading-[-0.1px] text-[#acadb9] '
