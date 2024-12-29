@@ -1,8 +1,8 @@
 'use client'
-<<<<<<< HEAD
-=======
+
+
 import { motion } from 'framer-motion'
->>>>>>> blogDone
+
 
 import Link from 'next/link'
 import { useState } from 'react'
@@ -202,30 +202,7 @@ const Articles = () => {
 		setCurrentPage(Math.min(totalPages - 1, currentPage + 1))
 	}
 
-<<<<<<< HEAD
-	return (
-		<section>
-			<div className='container_'>
-				<h1 className='text-center text-[45px] text-[#252525] font-[600] mt-[155px]'>
-					Latest <span className='text-[#6C5FBC]'>Articles </span>
-				</h1>
 
-				<div className='grid grid-cols-[350px_350px_350px] max-[1200px]:grid-cols-[350px_350px] max-[780px]:grid-cols-[350px] justify-center  gap-[60px] mt-[100px]'>
-					{currentProducts.map(article => (
-						<Link key={article.id} href={`/blog/${article.id}`}>
-							<ArticlesItem
-								key={article.id}
-								id={article.id}
-								imgLink={article.imgLink}
-								AuthorImg={article.AuthorImg}
-								AuthorName={article.AuthorName}
-								CreatedAt={article.CreatedAt}
-								question={article.question}
-							/>
-						</Link>
-					))}
-				</div>
-=======
 	const itemVariants = {
 		hidden: { opacity: 0, y: 20 },
 		visible: {
@@ -304,7 +281,7 @@ const Articles = () => {
 						</motion.div>
 					))}
 				</motion.div>
->>>>>>> blogDone
+
 
 				<div className='flex justify-center mt-[145px] gap-[80px]'>
 					<button

@@ -11,7 +11,7 @@ const page = () => {
 	const article = ArticlesItems.find(item => item.id === Number(id))
 
 	if (!article) {
-		return <div className='mt-[200px] text-center'>Статья не найдена.</div>
+		return <div className='mt-[200px] text-center'>Page not found.</div>
 	}
 
 	return (
@@ -52,11 +52,11 @@ const page = () => {
 								Browse restaurants and menus
 							</h1>
 
-<<<<<<< HEAD
-							<p className=' mt-[35px] text-[#252525] font-[400] text-[22px] leading-[55px]'>
-=======
+
+							
+
 							<p className=' mt-[35px] text-[#252525] max-[500px]:text-[16px]  font-[400] text-[22px] leading-[55px]'>
->>>>>>> blogDone
+
 								{article.browse}
 							</p>
 
@@ -64,11 +64,11 @@ const page = () => {
 								Select your items
 							</h1>
 
-<<<<<<< HEAD
-							<p className=' mt-[35px] text-[#252525] font-[400] text-[22px] leading-[55px]'>
-=======
+
+							
+
 							<p className=' mt-[35px] text-[#252525] max-[500px]:text-[16px] font-[400] text-[22px] leading-[55px]'>
->>>>>>> blogDone
+
 								{article.selectItems}
 							</p>
 
@@ -76,11 +76,13 @@ const page = () => {
 								Place your order
 							</h1>
 
-<<<<<<< HEAD
+
 							<p className=' mt-[35px] text-[#252525] font-[400] text-[22px] leading-[55px] '>
-=======
+
+							</p>
+
 							<p className=' mt-[35px] text-[#252525] max-[500px]:text-[16px] font-[400] text-[22px] leading-[55px] '>
->>>>>>> blogDone
+
 								{article.place}
 							</p>
 						</div>
@@ -115,6 +117,7 @@ const page = () => {
 			</div>
 		</section>
 	)
+	
 }
 
 export default page
